@@ -1,5 +1,6 @@
 package com.brahm.ecommerce.controller;
 
+import com.brahm.ecommerce.dto.LoginRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +23,16 @@ public class UserController {
         return userService.registerUser(dto);
 
     }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequestDTO dto) {
+        return userService.login(dto);
+    }
+
     @GetMapping("/test")
     public String test() {
         return "Working";
     }
+
+
 }
